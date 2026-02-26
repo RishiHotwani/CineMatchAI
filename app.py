@@ -1,7 +1,5 @@
 # ============================================================
 #  CineMatch AI — Main Streamlit Application
-#  OMDb-only · Dark cinema theme · Neon accents
-#  Mobile-responsive: fluid grid, stacked layouts, touch UI
 # ============================================================
 
 import streamlit as st
@@ -16,22 +14,20 @@ st.set_page_config(
     page_title="CineMatch AI",
     page_icon="🎬",
     layout="wide",
-    initial_sidebar_state="collapsed",   # collapsed by default on mobile
+    initial_sidebar_state="collapsed",
 )
-# ➤ FIX: Ensure sidebar toggle appears on Streamlit Cloud
+
+# IMPORTANT: Sidebar toggle fix (checkbox must exist BEFORE CSS loads)
 with st.sidebar:
     st.markdown("## Navigation")
     _ = st.checkbox("sidebar_init_flag", value=True)
-    
+
 # ── Global CSS  (desktop-first + mobile media queries) ────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap');
-            
-    /* Hide the forced sidebar checkbox */
-[data-testid="stSidebar"] [data-baseweb="checkbox"] {
-    display: none !important;
-}
+
+/* (REMOVED hide-checkbox CSS from here — it was too early!) */
 
 /* ═══════════════════════════════
    DESIGN TOKENS
@@ -735,4 +731,13 @@ st.markdown("""
   CINEMATCH AI &nbsp;·&nbsp; OMDb API &nbsp;·&nbsp; MovieLens 100K &nbsp;·&nbsp;
   TF-IDF + SVD &nbsp;·&nbsp; Built with Streamlit
 </div>
+""", unsafe_allow_html=True)
+
+# FINAL: hide forced checkbox so sidebar toggle still appears
+st.markdown("""
+<style>
+[data-testid="stSidebar"] [data-baseweb="checkbox"] {
+    display: none !important;
+}
+</style>
 """, unsafe_allow_html=True)
