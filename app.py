@@ -62,7 +62,7 @@ html, body,
     border-right: 1px solid var(--border) !important;
 }
 [data-testid="stSidebar"] * { color: var(--text) !important; }
-#MainMenu, footer, header { visibility: hidden; }
+#MainMenu, footer { visibility: hidden; }
 
 /* Make main content area use full width on mobile */
 [data-testid="stAppViewContainer"] > .main > .block-container {
