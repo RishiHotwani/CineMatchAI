@@ -51,7 +51,6 @@ cinematch/
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `OMDB_API_KEY` | `447afb9b` | Your OMDb API key |
 | `OMDB_SEED_MOVIES` | 150+ titles | Movies to build the content catalogue |
 | `SVD_N_FACTORS` | 100 | SVD latent factors |
 | `HYBRID_CONTENT_WEIGHT` | 0.4 | Default content blend weight |
