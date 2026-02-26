@@ -21,11 +21,17 @@ st.set_page_config(
 # ➤ FIX: Ensure sidebar toggle appears on Streamlit Cloud
 with st.sidebar:
     st.markdown("## Navigation")
+    _ = st.checkbox("sidebar_init_flag", value=True)
     
 # ── Global CSS  (desktop-first + mobile media queries) ────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap');
+            
+    /* Hide the forced sidebar checkbox */
+[data-testid="stSidebar"] [data-baseweb="checkbox"] {
+    display: none !important;
+}
 
 /* ═══════════════════════════════
    DESIGN TOKENS
