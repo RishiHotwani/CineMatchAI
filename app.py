@@ -18,7 +18,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",   # collapsed by default on mobile
 )
-
+# ➤ FIX: Ensure sidebar toggle appears on Streamlit Cloud
+with st.sidebar:
+    st.markdown("## Navigation")
+    
 # ── Global CSS  (desktop-first + mobile media queries) ────────
 st.markdown("""
 <style>
