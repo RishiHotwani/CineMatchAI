@@ -710,7 +710,7 @@ elif mode == "⚡ Hybrid":
 
                 num_cols = [c for c in ["Content","Collab","Hybrid"] if c in disp.columns]
                 st.dataframe(
-                    disp.style.applymap(_color, subset=num_cols)
+                    disp.style.map(_color, subset=num_cols)
                               .format({c: "{:.3f}" for c in num_cols}),
                     use_container_width=True,
                 )
